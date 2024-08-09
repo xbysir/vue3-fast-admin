@@ -11,8 +11,14 @@
   },
   "dependencies": {
     "@types/node": "^22.1.0",
+    "axios": "^1.7.3",
+    "element-plus": "^2.8.0",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "pinia": "^2.2.1",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-svg-loader": "^5.1.0",
     "vue": "^3.4.35",
     "vue-router": "^4.4.3"
   },

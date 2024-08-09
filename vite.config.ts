@@ -1,11 +1,14 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { resolve } from "path";
+import path, { resolve } from "path";
 
 // 自动导入vue中hook reactive ref等
 import AutoImport from "unplugin-auto-import/vite";
 //自动导入ui-组件 比如说ant-design-vue  element-plus等
 import Components from "unplugin-vue-components/vite";
+
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import svgLoader from "vite-svg-loader";
 
 export default defineConfig({
   resolve: {
@@ -35,6 +38,13 @@ export default defineConfig({
     Components({
       // 引入组件的,包括自定义组件
       dts: "src/components.d.ts"
+    }),
+    //将 SVG 静态图转化为 Vue 组件
+    svgLoader({ defaultImport: "url" }),
+    //SVG
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), "src/icons/svg")],
+      symbolId: "icon-[dir]-[name]"
     })
   ],
   // 配置打包文件输出
