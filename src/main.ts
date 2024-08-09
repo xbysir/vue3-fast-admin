@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-
+import store from "@/store";
 // load
 import { loadSvg } from "@/icons";
 import { loadPlugins } from "@/plugins";
@@ -18,5 +18,6 @@ const app = createApp(App);
 loadPlugins(app);
 //加载全局 SVG
 loadSvg(app);
+app.use(store);
 app.use(router);
 app.mount("#app");

@@ -8,8 +8,16 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    Notify: typeof import('./components/Notify/index.vue')['default']
+    NotifyList: typeof import('./components/Notify/NotifyList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Screenfull: typeof import('./components/Screenfull/index.vue')['default']
+    SearchFooter: typeof import('./components/SearchMenu/SearchFooter.vue')['default']
+    SearchMenu: typeof import('./components/SearchMenu/index.vue')['default']
+    SearchModal: typeof import('./components/SearchMenu/SearchModal.vue')['default']
+    SearchResult: typeof import('./components/SearchMenu/SearchResult.vue')['default']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
+    ThemeSwitch: typeof import('./components/ThemeSwitch/index.vue')['default']
   }
 }
