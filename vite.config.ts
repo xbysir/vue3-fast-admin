@@ -11,8 +11,8 @@ export default defineConfig({
   resolve: {
     // ↓路径别名
     alias: {
-      "@": resolve(__dirname, "./src"),
-    },
+      "@": resolve(__dirname, "./src")
+    }
   },
   server: {
     port: 8990,
@@ -20,9 +20,9 @@ export default defineConfig({
       "/api/v1": {
         target: "https://mock.mengxuegu.com/mock/63218b5fb4c53348ed2bc212",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
+        rewrite: path => path.replace(/^\/api/, "")
+      }
+    }
   },
   plugins: [
     vue(),
@@ -30,12 +30,12 @@ export default defineConfig({
       //安装两行后你会发现在组件中不用再导入ref，reactive等
       imports: ["vue", "vue-router"],
       //存放的位置
-      dts: "src/auto-import.d.ts",
+      dts: "src/auto-import.d.ts"
     }),
     Components({
       // 引入组件的,包括自定义组件
-      dts: "src/components.d.ts",
-    }),
+      dts: "src/components.d.ts"
+    })
   ],
   // 配置打包文件输出
   build: {
@@ -50,12 +50,12 @@ export default defineConfig({
         drop_console: true,
         //打包时删除 debugger
         drop_debugger: true,
-        pure_funcs: ["console.log"],
+        pure_funcs: ["console.log"]
       },
       output: {
         // 去掉注释内容
-        comments: true,
-      },
+        comments: true
+      }
     },
     // 禁用 gzip 压缩大小报告，可略微减少打包时间
     reportCompressedSize: false,
@@ -66,18 +66,14 @@ export default defineConfig({
         // js最小拆包
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            return id
-              .toString()
-              .split("node_modules/")[1]
-              .split("/")[1]
-              .toString();
+            return id.toString().split("node_modules/")[1].split("/")[1].toString();
           }
         },
         // 静态资源分类和包装
         chunkFileNames: "assets/js/[name]-[hash].js",
         entryFileNames: "assets/js/[name]-[hash].js",
-        assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-      },
-    },
-  },
+        assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
+      }
+    }
+  }
 });
